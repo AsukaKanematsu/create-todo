@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($categoryName)) {
         session_start();
         $_SESSION['errors'][] = 'カテゴリー名を入力してください。';
-        header('Location: ./edit.php?id=' . $categoryId);
+        header('Location: ./index.php?id=' . $categoryId);
         exit();
     } else {
         $sql =
