@@ -14,10 +14,17 @@ unset($_SESSION['errors']);
 $userId = $_SESSION['id'];
 $name = filter_input(INPUT_POST, 'name');
 
-$sql = 'SELECT * FROM categories';
+$sql = 'SELECT * FROM categories WHERE user_id = :userId'; // ログインユーザーのカテゴリーのみを取得するクエリ
 $statement = $pdo->prepare($sql);
+$statement->bindValue(':userId', $userId, PDO::PARAM_INT);
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+$categoriesInfoList = [];
+foreach ($categoriesInfoList as $categoriesInfo) {
+    if ($_SESSION['id'] == $categoriesInfo['user_id']) {
+        $categories[] = $categoriesInfo;
+    }
+}
 ?>
 
 <!DOCTYPE html>
