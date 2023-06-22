@@ -69,6 +69,6 @@ $category = $statement->fetch(PDO::FETCH_ASSOC);
             'name'
         ]; ?>"></p>
         <button type="submit">更新</button>
-        <a href="./index.php?id=">戻る</a>
+        <a href="./index.php">戻る</a>
     </form>
 </body>
