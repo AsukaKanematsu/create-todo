@@ -19,12 +19,13 @@ $statement = $pdo->prepare($sql);
 $statement->bindValue(':userId', $userId, PDO::PARAM_INT);
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
-$categoriesInfoList = [];
-foreach ($categoriesInfoList as $categoriesInfo) {
-    if ($_SESSION['id'] == $categoriesInfo['user_id']) {
-        $categories[] = $categoriesInfo;
-    }
-}
+
+// $categoriesInfoList = [];
+// foreach ($categoriesInfoList as $categoriesInfo) {
+//     if ($_SESSION['id'] == $categoriesInfo['user_id']) {
+//         $categories[] = $categoriesInfo;
+//     }
+// }
 ?>
 
 <!DOCTYPE html>

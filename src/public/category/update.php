@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($categoryName)) {
         session_start();
         $_SESSION['errors'][] = 'カテゴリー名を入力してください。';
-        header('Location: ./index.php?id=' . $categoryId);
+        header('Location: ./index.php');
         exit();
     } else {
         $sql =
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             );
             $statement->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
             $statement->execute();
-            header('Location: ./index.php?id=' . $categoryId);
+            header('Location: ./index.php');
             exit();
         } catch (PDOException $e) {
             session_start();
