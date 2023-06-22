@@ -47,7 +47,7 @@ if (isset($_GET['keyword'])) {
 <body>
 
   <div>
-    <a href="./create.php">メモを追加</a><br>
+    <a href="./task/create.php">タスク追加</a><br>
   </div>
 
   <div>

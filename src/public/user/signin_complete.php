@@ -24,6 +24,16 @@ $statement = $pdo->prepare($sql);
 $statement->bindValue(':email', $email, PDO::PARAM_STR);
 $statement->execute();
 $user = $statement->fetch(PDO::FETCH_ASSOC);
+// var_dump(!password_verify($password, $user['password']));
+// var_dump($password);
+// var_dump($user);
+// die();
+
+if (empty($user)) {
+    $_SESSION['errors'] = 'メールアドレスまたはパスワードが違います';
+    header('Location: ./signin.php');
+    exit();
+}
 
 if (!password_verify($password, $user['password'])) {
     $_SESSION['errors'] = 'メールアドレスまたはパスワードが違います';
